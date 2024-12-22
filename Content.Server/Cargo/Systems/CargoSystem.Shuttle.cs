@@ -420,7 +420,7 @@ public sealed partial class CargoSystem
                 return false;
             }
 
-            return true;
+            // Do not short-circuit true here -- unsellable entity could be in a dead mob's hand.
         }
 
         // Recursively check for mobs at any point.
