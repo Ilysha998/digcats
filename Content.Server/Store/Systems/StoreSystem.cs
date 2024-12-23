@@ -60,13 +60,12 @@ public sealed partial class StoreSystem : EntitySystem
             store.Opened = true;
         }
 
-        args.Handled = TryAddCurrency(GetCurrencyValue(component), store);
+        args.Handled = TryAddCurrency(args.Used, component, store);
 
         if (args.Handled)
         {
             var msg = Loc.GetString("store-currency-inserted", ("used", args.Used), ("target", args.Target));
             _popup.PopupEntity(msg, args.Target.Value);
-            QueueDel(args.Used);
         }
     }
 
@@ -90,9 +89,17 @@ public sealed partial class StoreSystem : EntitySystem
     /// <param name="component">The currency to add</param>
     /// <param name="store">The store to add it to</param>
     /// <returns>Whether or not the currency was succesfully added</returns>
-    public bool TryAddCurrency(CurrencyComponent component, StoreComponent store)
+    public bool TryAddCurrency(EntityUid uid, CurrencyComponent component, StoreComponent store)
     {
-        return TryAddCurrency(GetCurrencyValue(component), store);
+        if (!EntityManager.IsQueuedForDeletion(uid)) // prevent double-spending in one tick
+        {
+            if (TryAddCurrency(GetCurrencyValue(component), store))
+            {
+                QueueDel(uid);
+                return true;
+            }
+        }
+        return false;
     }
 
     /// <summary>
