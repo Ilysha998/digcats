@@ -26,7 +26,7 @@ public sealed class SeedExtractorSystem : EntitySystem
 
     private void OnInteractUsing(EntityUid uid, SeedExtractorComponent seedExtractor, InteractUsingEvent args)
     {
-        if (!this.IsPowered(uid, EntityManager))
+        if (!this.IsPowered(uid, EntityManager) || EntityManager.IsQueuedForDeletion(args.Used))
             return;
 
         if (!TryComp(args.Used, out ProduceComponent? produce)) return;

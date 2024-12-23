@@ -49,7 +49,7 @@ public sealed class GeneratorSystem : SharedGeneratorSystem
 
     private void OnInteractUsing(EntityUid uid, SharedGeneratorComponent component, InteractUsingEvent args)
     {
-        if (!TryComp(args.Used, out MaterialComponent? mat) || !TryComp(args.Used, out StackComponent? stack))
+        if (!TryComp(args.Used, out MaterialComponent? mat) || !TryComp(args.Used, out StackComponent? stack) || EntityManager.IsQueuedForDeletion(args.Used))
             return;
 
         if (!mat.Materials.ContainsKey(component.FuelMaterial))

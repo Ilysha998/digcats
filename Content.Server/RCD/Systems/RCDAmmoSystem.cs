@@ -22,7 +22,7 @@ namespace Content.Server.RCD.Systems
 
         private void OnAfterInteract(EntityUid uid, RCDAmmoComponent component, AfterInteractEvent args)
         {
-            if (args.Handled || !args.CanReach)
+            if (args.Handled || !args.CanReach || EntityManager.IsQueuedForDeletion(uid))
                 return;
 
             if (args.Target is not {Valid: true} target ||

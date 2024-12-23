@@ -42,7 +42,7 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
 
     public override bool TryInsertMaterialEntity(EntityUid user, EntityUid toInsert, EntityUid receiver, MaterialStorageComponent? component = null)
     {
-        if (!Resolve(receiver, ref component))
+        if (!Resolve(receiver, ref component) || EntityManager.IsQueuedForDeletion(toInsert))
             return false;
         if (TryComp<ApcPowerReceiverComponent>(receiver, out var power) && !power.Powered)
             return false;
