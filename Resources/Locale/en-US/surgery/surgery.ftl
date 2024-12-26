@@ -25,6 +25,8 @@ surgery-organ-already-has-attachment = Organ already has a tool attached to it!
 surgery-small-clamp-attached = Small clamp attached.
 surgery-organ-attached = Organ attached.
 
+surgery-slot-not-empty = There is already something there.
+surgery-slot-mismatch = {CAPITALIZE(THE($part))} does not fit there.
 surgery-blocked = That part of the patient is covered.
 
 surgery-warn-necrosis = You feel a tingling pain followed by numbness.

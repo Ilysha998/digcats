@@ -1128,11 +1128,17 @@ namespace Content.Server.Surgery
 
             //check if part slot is empty
             if (bodyPartSlot.Child is not null)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("surgery-slot-not-empty"), user, user);
                 return false;
+            }
 
             //ensure part type matches the slot type
             if (bodyPart.PartType != bodyPartSlot.Type)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("surgery-slot-mismatch", ("part", bodyPart)), user, user);
                 return false;
+            }
 
             if (!timeOverride)
                 if (!(await ProcedureDoAfter(user, target, tool.DrillTime * tool.DrillTimeMod, tool))) return false;
