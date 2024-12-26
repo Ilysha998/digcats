@@ -27,6 +27,7 @@ using Content.Shared.Damage;
 using Content.Shared.Bed.Sleep;
 using Content.Server.Bed.Sleep;
 using Content.Server.Speech.Components;
+using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Robust.Shared.Prototypes;
 
@@ -69,6 +70,8 @@ namespace Content.Server.Surgery
             // BUI
             SubscribeLocalEvent<SurgeryComponent, SurgerySlotButtonPressed>(OnSurgeryButtonPressed);
             SubscribeLocalEvent<SurgeryComponent, OrganSlotButtonPressed>(OnOrganButtonPressed);
+
+            SubscribeLocalEvent<SurgeryComponent, InteractUsingEvent>(OnInteractUsing);
         }
 
         public override void Update(float frameTime)
@@ -1563,6 +1566,15 @@ namespace Content.Server.Surgery
                 _userInterfaceSystem.TryOpen(component.Owner, SurgeryUiKey.Key, actor.PlayerSession);
                 UpdateUiState(component.Owner);
             }
+        }
+
+        private void OnInteractUsing(EntityUid uid, SurgeryComponent component, InteractUsingEvent args)
+        {
+            if (args.Handled || !TryComp<SurgeryToolComponent>(args.Used, out var tool))
+                return;
+
+            StartOpeningSurgery(args.User, component);
+            args.Handled = true;
         }
 
         private void AddSurgeryVerb(EntityUid uid, SurgeryComponent component, GetVerbsEvent<Verb> args)
