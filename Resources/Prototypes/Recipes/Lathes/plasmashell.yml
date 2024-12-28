@@ -19,4 +19,4 @@
   completetime: 5
   materials:
     Plasma: 140
-    Steel: 540
+    Steel: 200 # 140 for 14 shells + 60 for case
