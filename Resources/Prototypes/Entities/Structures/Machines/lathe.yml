@@ -104,6 +104,10 @@
       - ShellShotgun
       - HandheldCrewMonitor
       - AppraisalTool
+      - SheetSteel #these sheet recipe costs don't scale with upgrades
+      - SheetGlass1
+      - SheetRGlass
+      - SheetPlastic
   - type: StaticPrice
     price: 800
 
