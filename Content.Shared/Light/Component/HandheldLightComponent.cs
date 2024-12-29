@@ -16,7 +16,7 @@ namespace Content.Shared.Light
 
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("wattage")]
-        public float Wattage { get; set; } = .8f;
+        public float Wattage { get; set; } = .2f;
 
         [DataField("turnOnSound")]
         public SoundSpecifier TurnOnSound = new SoundPathSpecifier("/Audio/Items/flashlight_on.ogg");
