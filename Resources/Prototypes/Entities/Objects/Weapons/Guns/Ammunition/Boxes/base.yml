@@ -1,0 +1,12 @@
+- type: entity
+  parent: BaseItem
+  id: BaseAmmoBox
+  abstract: true
+  name: ammunition box
+  components:
+  - type: Item
+    size: 30
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []

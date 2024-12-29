@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: BaseAmmoBox
   id: BaseMagazineBoxPlasma
   name: ammunition box (plasma shells)
   components:
@@ -10,12 +10,7 @@
       tags:
         - PlasmaShell
     proto: PlasmaShell
-    capacity: 30
-  - type: Item
-    size: 5
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
+    capacity: 84
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
     netsync: false

@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: BaseAmmoBox
   id: BaseMagazineBoxPistol
   name: ammunition box (.35 auto)
   components:
@@ -11,11 +11,6 @@
         - CartridgePistol
     proto: CartridgePistol
     capacity: 60
-  - type: Item
-    size: 5
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
     netsync: false

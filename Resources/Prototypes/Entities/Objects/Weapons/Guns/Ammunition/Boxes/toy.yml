@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: BaseAmmoBox
   id: BoxDonkSoftBase
   name: foamdart box
   components:
@@ -9,10 +9,6 @@
     capacity: 30
   - type: Sprite
     netsync: false
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-        ents: []
 
 # Boxes
 - type: entity

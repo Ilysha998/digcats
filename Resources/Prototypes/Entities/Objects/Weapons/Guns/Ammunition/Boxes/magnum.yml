@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: BaseAmmoBox
   id: BaseMagazineBoxMagnum
   components:
   - type: BallisticAmmoProvider
@@ -10,11 +10,6 @@
         - CartridgeMagnum
     proto: CartridgeMagnum
     capacity: 60
-  - type: Item
-    size: 5
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi
     netsync: false

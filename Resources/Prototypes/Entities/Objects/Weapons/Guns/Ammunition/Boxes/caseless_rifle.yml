@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: BaseAmmoBox
   id: BaseMagazineBoxCaselessRifle
   name: ammunition box (.25 caseless)
   components:
@@ -11,11 +11,6 @@
         - CartridgeCaselessRifle
     proto: CartridgeCaselessRifle
     capacity: 60
-  - type: Item
-    size: 5
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Boxes/caseless_rifle.rsi
     netsync: false

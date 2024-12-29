@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: BaseAmmoBox
   id: BaseMagazineBoxLightRifle
   name: ammunition box (.30 rifle)
   components:
@@ -11,11 +11,6 @@
         - CartridgeLightRifle
     proto: CartridgeLightRifle
     capacity: 50
-  - type: Item
-    size: 5
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi
     netsync: false
