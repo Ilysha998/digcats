@@ -37,12 +37,21 @@
       - MagazinePistol
       - MagazineMagnumSubMachineGun
       - SpeedLoaderMagnum
+      - DungeonAmmoBoxSpawner
+
+- type: entity
+  id: DungeonAmmoBoxSpawner
+  name: dungeon ammo box
+  parent: MiningRandomSpawner
+  components:
+    - type: RandomSpawner
+      prototypes:
       - BoxLethalshot
-      - BoxLethalshot
-      - MagazineBoxPistol
-      - MagazineBoxMagnum
-      - MagazineBoxLightRifle
       - MagazineBoxAntiMateriel
+      - MagazineBoxLightRifle
+      - MagazineBoxMagnum
+      - MagazineBoxPistol
+      - MagazineBoxPlasma
 
 - type: entity
   id: DungeonArmorSpawner
