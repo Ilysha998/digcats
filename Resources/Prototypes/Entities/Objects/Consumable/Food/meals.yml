@@ -242,8 +242,6 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 6
-        - ReagentId: CarpoToxin
-          Quantity: 3
 # Tastes like fish, batter, hot peppers.
 
 - type: entity
